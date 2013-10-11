@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -41,6 +40,7 @@ public class Login extends JDialog {
 	 */
 	
 	public Login() {
+		
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -50,8 +50,7 @@ public class Login extends JDialog {
 		{
 			txtBenutzername = new JTextField();
 			txtBenutzername.setToolTipText("Geben Sie Ihren Benutzernamen ein.");
-			txtBenutzername.setText("Benutzername");
-			txtBenutzername.setBounds(76, 88, 134, 28);
+			txtBenutzername.setBounds(169, 99, 134, 28);
 			contentPanel.add(txtBenutzername);
 			txtBenutzername.setColumns(10);
 		}
@@ -77,26 +76,21 @@ public class Login extends JDialog {
 			btnPasswortVergessen.setBounds(284, 204, 160, 29);
 			contentPanel.add(btnPasswortVergessen);
 		}
-		
-		JLabel lblBild = new JLabel("Bild");
-		lblBild.setBounds(284, 27, 61, 16);
-		contentPanel.add(lblBild);
 		{
 			pwdPasswort = new JPasswordField();
-			pwdPasswort.setText("Passwort");
-			pwdPasswort.setBounds(76, 128, 134, 28);
+			pwdPasswort.setBounds(169, 129, 134, 28);
 			contentPanel.add(pwdPasswort);
 		}
 		{
-			ImageIcon icon = new ImageIcon( "/Users/Janis/Documents/workspace2/FallstudieTest/src/gui/images/LogoFinal.bmp" );
-			JLabel Bild = new JLabel( icon );
-			JPanel feld = new JPanel();
-			feld.add(Bild);
-			feld.setBounds(30, 30, 110, 110);
-			JPanel jContentPane = new JPanel();
-			jContentPane.add(feld);
+			JLabel lblBenutzername = new JLabel("Benutzername:");
+			lblBenutzername.setBounds(66, 105, 103, 16);
+			contentPanel.add(lblBenutzername);
 		}
-		
+		{
+			JLabel lblPasswort = new JLabel("Passwort:");
+			lblPasswort.setBounds(66, 135, 61, 16);
+			contentPanel.add(lblPasswort);
+		}	
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -138,6 +132,7 @@ public class Login extends JDialog {
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
+				okButton.requestFocus();
 			}
 			{
 				JButton cancelButton = new JButton("Abbrechen");
@@ -150,22 +145,6 @@ public class Login extends JDialog {
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
-		}
-		{
-			txtBenutzername.addFocusListener(new java.awt.event.FocusAdapter() {
-				@SuppressWarnings("deprecation")
-				public void focusGained(java.awt.event.FocusEvent evt) {
-		
-					if(pwdPasswort.getText().equals("txtBenutzername")){
-						txtBenutzername.setText("txtBenutzername");
-					}
-					else
-					{
-						txtBenutzername.setText("");
-						// ((javax.swing.JTextField) evt.getComponent()).setText("");
-					}
-			        }
-			});
 		}
 	}
 }
