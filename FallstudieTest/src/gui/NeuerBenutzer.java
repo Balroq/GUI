@@ -1,8 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -11,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class NeuerBenutzer extends JDialog {
@@ -36,62 +35,61 @@ public class NeuerBenutzer extends JDialog {
 	 * Create the dialog.
 	 */
 	public NeuerBenutzer() {
-		setBounds(100, 100, 450, 300);
+		setResizable(false);
+		setBackground(Color.WHITE);
+		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			textField_1 = new JTextField();
-			textField_1.setBounds(168, 76, 134, 28);
+			textField_1.setBounds(217, 71, 134, 28);
 			contentPanel.add(textField_1);
 			textField_1.setColumns(10);
 		}
 		{
 			textField = new JTextField();
-			textField.setBounds(168, 36, 134, 28);
+			textField.setBounds(217, 37, 134, 28);
 			contentPanel.add(textField);
 			textField.setColumns(10);
 		}
 		{
 			JLabel lblBenutzername = new JLabel("Benutzername:");
-			lblBenutzername.setBounds(52, 42, 104, 16);
+			lblBenutzername.setBounds(101, 43, 104, 16);
 			contentPanel.add(lblBenutzername);
 		}
 		{
 			JLabel lblPasswort = new JLabel("Passwort:");
-			lblPasswort.setBounds(52, 82, 61, 16);
+			lblPasswort.setBounds(101, 77, 61, 16);
 			contentPanel.add(lblPasswort);
 		}
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("Best\u00E4tigen");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						//TODO
-						ErfolgEingabe erfein = new ErfolgEingabe();
-						erfein.setVisible(true);
-						dispose();
-					}
-				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Abbrechen");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
+			JButton okButton = new JButton("Best\u00E4tigen");
+			okButton.setBounds(222, 123, 109, 29);
+			contentPanel.add(okButton);
+			okButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//TODO Aktion
+					NeuerBenutzerFrage NeuerBenutzerFrage = new NeuerBenutzerFrage();
+					NeuerBenutzerFrage.setVisible(true);
+					dispose();
+				}
+			});
+			okButton.setActionCommand("OK");
+			getRootPane().setDefaultButton(okButton);
+		}
+		{
+			JButton cancelButton = new JButton("Abbrechen");
+			cancelButton.setBounds(343, 123, 111, 29);
+			contentPanel.add(cancelButton);
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			cancelButton.setActionCommand("Cancel");
 		}
 	}
 

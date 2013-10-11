@@ -1,8 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -11,6 +9,7 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class OrgaEinheitInaktivFrage extends JDialog {
@@ -34,49 +33,53 @@ public class OrgaEinheitInaktivFrage extends JDialog {
 	 * Create the dialog.
 	 */
 	public OrgaEinheitInaktivFrage() {
-		setBounds(100, 100, 450, 300);
+		setResizable(false);
+		setBackground(Color.WHITE);
+		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			JLabel lblOrgaeinheit = new JLabel("OrgaEinheit");
-			lblOrgaeinheit.setBounds(6, 30, 153, 16);
+			lblOrgaeinheit.setBounds(178, 59, 153, 16);
 			contentPanel.add(lblOrgaeinheit);
 		}
 		{
 			JTextPane txtpnWollenSieDie = new JTextPane();
+			txtpnWollenSieDie.setEditable(false);
+			txtpnWollenSieDie.setBackground(Color.WHITE);
 			txtpnWollenSieDie.setText("Wollen Sie die folgende Organisationseinheit wirklich deaktivieren?");
-			txtpnWollenSieDie.setBounds(6, 6, 438, 227);
+			txtpnWollenSieDie.setBounds(6, 6, 435, 109);
 			contentPanel.add(txtpnWollenSieDie);
 		}
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton btnJa = new JButton("Ja");
-				btnJa.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						//TODO
-						ErfolgEingabe erfein = new ErfolgEingabe();
-						erfein.setVisible(true);
-						dispose();
-					}
-				});
-				buttonPane.add(btnJa);
-			}
+			JButton btnJa = new JButton("Ja");
+			btnJa.setBounds(292, 123, 75, 29);
+			contentPanel.add(btnJa);
 			{
 				JButton okButton = new JButton("Nein");
+				okButton.setBounds(379, 123, 75, 29);
+				contentPanel.add(okButton);
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
 					}
 				});
 				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
+			btnJa.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//TODO Aktion
+					//TODO Exception Abfrage durch RŸckgabewert der DB
+					ErfolgEingabe ErfolgEingabe = new ErfolgEingabe();
+					ErfolgEingabe.setVisible(true);
+		
+					dispose();
+				}
+			});
 		}
 	}
 

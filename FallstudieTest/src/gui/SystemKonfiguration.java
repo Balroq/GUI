@@ -1,8 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -32,37 +30,36 @@ public class SystemKonfiguration extends JDialog {
 	 * Create the dialog.
 	 */
 	public SystemKonfiguration() {
-		setBounds(100, 100, 450, 300);
+		//TODO Inhalt
+		setResizable(false);
+		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("\u00C4nderungen \u00FCbernehmen");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						SystemKonfigurationFrage SystemKonfigurationFrage = new SystemKonfigurationFrage();
-						SystemKonfigurationFrage.setVisible(true);
-					}
-				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
+			JButton okButton = new JButton("\u00C4nderungen \u00FCbernehmen");
+			okButton.setBounds(136, 123, 202, 29);
+			contentPanel.add(okButton);
+			okButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					SystemKonfigurationFrage SystemKonfigurationFrage = new SystemKonfigurationFrage();
+					SystemKonfigurationFrage.setVisible(true);
+				}
+			});
+			okButton.setActionCommand("OK");
+			getRootPane().setDefaultButton(okButton);
+		}
+		{
+			JButton cancelButton = new JButton("Abbrechen");
+			cancelButton.setBounds(350, 123, 104, 29);
+			contentPanel.add(cancelButton);
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			cancelButton.setActionCommand("Cancel");
 		}
 	}
 

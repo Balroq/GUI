@@ -1,0 +1,8 @@
+In allen erstellten Klassen befinden sich TODO's. Diese müssen abgearbeitet werden. 
+Vor allem die inhaltlich wichtigen, die für die Ausführung des Programms essentiell sind.
+Außerdem müssen für die Klassen, für die dies zutrifft, 
+das Attribut rezisable auf false gesetzt werden, sobald alle Funktionen implementiert sind.
+
+Für die weitere Implementierung weiterer Klassen gilt, dass in den Hilfeklassen die Textfelder auf
+not editable gesetzt wird. Damit wird bezweckt, dass der Benutzer den Text nicht verändern kann.
+

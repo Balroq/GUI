@@ -9,12 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 
+//TODO Alle Knoepfe eingebunden? Fehlt etwas? Vier-Augen-Prinzip
+public class Hauptseite {
 
-public class Hauptmenue {
-
-	public JFrame frame;
+	public JFrame frmElasticoElektronische;
 	
 
 	/**
@@ -24,8 +25,8 @@ public class Hauptmenue {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Hauptmenue window = new Hauptmenue();
-					window.frame.setVisible(true);
+					Hauptseite window = new Hauptseite();
+					window.frmElasticoElektronische.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,7 +37,7 @@ public class Hauptmenue {
 	/**
 	 * Create the application.
 	 */
-	public Hauptmenue() {
+	public Hauptseite() {
 		initialize();
 	}
 
@@ -44,10 +45,15 @@ public class Hauptmenue {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 646, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmElasticoElektronische = new JFrame();
+		frmElasticoElektronische.setResizable(false);
+		frmElasticoElektronische.setTitle("Elastico - Elektronische Arbeitsschritt / Information / Control / Observation");
+		frmElasticoElektronische.setBackground(Color.WHITE);
+		frmElasticoElektronische.getContentPane().setBackground(Color.WHITE);
+		frmElasticoElektronische.setIconImage(Toolkit.getDefaultToolkit().getImage(Hauptseite.class.getResource("/gui/images/LogoFinal.png")));
+		frmElasticoElektronische.setBounds(100, 100, 801, 400);
+		frmElasticoElektronische.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmElasticoElektronische.getContentPane().setLayout(null);
  
         // Hier erzeugen wir unsere JPanels
         JPanel panelMenu = new JPanel();
@@ -63,7 +69,9 @@ public class Hauptmenue {
  
         // Erzeugung eines JTabbedPane-Objektes
         JTabbedPane tabpane = new JTabbedPane(JTabbedPane.TOP);
-        tabpane.setBounds(23, 6, 597, 325);
+        tabpane.setForeground(Color.BLACK);
+        tabpane.setBackground(Color.WHITE);
+        tabpane.setBounds(23, 6, 754, 325);
  
         // Hier werden die JPanels als Registerkarten hinzugefügt
         tabpane.addTab("Menü", panelMenu);
@@ -71,7 +79,18 @@ public class Hauptmenue {
         
         tabpane.addTab("Startseite", panelMenu);
         tabpane.addTab("Stricheln", panelMenu);
+        
+      //TODO Stricheln Oberflaeche einbinden
+        JLabel lblTodo = new JLabel("TODO");
+        lblTodo.setBounds(71, 26, 61, 16);
+        panelMenu.add(lblTodo);
         tabpane.addTab("Statistik", panelStatistik);
+        panelStatistik.setLayout(null);
+        
+      //TODO Statistik Oberflaeche einbinden
+        JLabel lblTodo_1 = new JLabel("TODO");
+        lblTodo_1.setBounds(64, 70, 61, 16);
+        panelStatistik.add(lblTodo_1);
         tabpane.addTab("Administration", panelAdministration);
         panelAdministration.setLayout(null);
         
@@ -83,7 +102,7 @@ public class Hauptmenue {
         lblOrganisationseinheitenverwaltung.setBounds(6, 97, 252, 16);
         panelAdministration.add(lblOrganisationseinheitenverwaltung);
         
-        JLabel lblSystemverwaltung = new JLabel("Systemverwaltung");
+        JLabel lblSystemverwaltung = new JLabel("Systemverwaltung:");
         lblSystemverwaltung.setBounds(6, 183, 175, 16);
         panelAdministration.add(lblSystemverwaltung);
         
@@ -144,7 +163,7 @@ public class Hauptmenue {
         		Administrationshilfe.setVisible(true);
         		}
         });
-        button.setBounds(541, 244, 29, 29);
+        button.setBounds(698, 244, 29, 29);
         panelAdministration.add(button);
         
         JButton btnKonfigurieren = new JButton("Konfigurieren");
@@ -158,7 +177,7 @@ public class Hauptmenue {
         panelAdministration.add(btnKonfigurieren);
  
         // JTabbedPane wird unserem Dialog hinzugefügt
-        frame.getContentPane().add(tabpane);
+        frmElasticoElektronische.getContentPane().add(tabpane);
         
         JButton btnNewButton_2 = new JButton("Beenden");
         btnNewButton_2.addActionListener(new ActionListener() {
@@ -167,22 +186,24 @@ public class Hauptmenue {
     			frmAnwendungAbbruch.setVisible(true);    		        		
         	}
         });
-        btnNewButton_2.setBounds(503, 332, 117, 29);
-        frame.getContentPane().add(btnNewButton_2);
+        btnNewButton_2.setBounds(660, 332, 117, 29);
+        frmElasticoElektronische.getContentPane().add(btnNewButton_2);
         
         JButton btnNewButton_1 = new JButton("?");
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		HauptmenueHilfe frmHauptmenueHilfe = new HauptmenueHilfe();
+        		HauptseiteHilfe frmHauptmenueHilfe = new HauptseiteHilfe();
         		frmHauptmenueHilfe.setVisible(true);  		
         	}
         });
         btnNewButton_1.setBounds(33, 332, 29, 29);
-        frame.getContentPane().add(btnNewButton_1);
+        frmElasticoElektronische.getContentPane().add(btnNewButton_1);
         
+        
+      //TODO Aktion einbinden, sodass der hinter dem benutzernamen stehende Name mit Vor- und Nachname angezeigt wird.
         JLabel lblEingeloggtAlsJanis = new JLabel("Eingeloggt als: Janis H\u00F6pken");
         lblEingeloggtAlsJanis.setBounds(74, 337, 180, 16);
-        frame.getContentPane().add(lblEingeloggtAlsJanis);
+        frmElasticoElektronische.getContentPane().add(lblEingeloggtAlsJanis);
         
         
 	}

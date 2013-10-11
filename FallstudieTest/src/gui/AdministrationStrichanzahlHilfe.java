@@ -1,12 +1,12 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JTextPane;
 
 @SuppressWarnings("serial")
 public class AdministrationStrichanzahlHilfe extends JDialog {
@@ -30,26 +30,28 @@ public class AdministrationStrichanzahlHilfe extends JDialog {
 	 * Create the dialog.
 	 */
 	public AdministrationStrichanzahlHilfe() {
+		setResizable(false);
+		setBackground(Color.WHITE);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setLayout(new FlowLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
+			JButton okButton = new JButton("OK");
+			okButton.setBounds(369, 243, 75, 29);
+			contentPanel.add(okButton);
+			okButton.setActionCommand("OK");
+			getRootPane().setDefaultButton(okButton);
+		}
+		{
+			JTextPane txtpnTodo = new JTextPane();
+			//TODO
+			txtpnTodo.setText("TODO");
+			txtpnTodo.setEditable(false);
+			txtpnTodo.setBounds(6, 6, 438, 225);
+			contentPanel.add(txtpnTodo);
 		}
 	}
 

@@ -1,8 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -10,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class LoescheBenutzerFrage extends JDialog {
@@ -33,44 +33,50 @@ public class LoescheBenutzerFrage extends JDialog {
 	 * Create the dialog.
 	 */
 	public LoescheBenutzerFrage() {
-		setBounds(100, 100, 450, 300);
+		setResizable(false);
+		setBackground(Color.WHITE);
+		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			JTextPane txtpnWollenSieDen = new JTextPane();
+			txtpnWollenSieDen.setEditable(false);
 			txtpnWollenSieDen.setText("Wollen Sie den folgenden Benutzer wirklich loeschen?");
-			txtpnWollenSieDen.setBounds(26, 10, 383, 162);
+			txtpnWollenSieDen.setBounds(26, 10, 383, 22);
 			contentPanel.add(txtpnWollenSieDen);
 		}
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("Ja");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						
-						//TODO
-						dispose();
-					}
-				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton cancelButton = new JButton("Nein");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
-			}
+			JLabel lblBenutzername = new JLabel("Benutzername");
+			lblBenutzername.setBounds(186, 70, 101, 16);
+			contentPanel.add(lblBenutzername);
+		}
+		{
+			JButton okButton = new JButton("Ja");
+			okButton.setBounds(292, 123, 75, 29);
+			contentPanel.add(okButton);
+			okButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {	
+					//TODO Aktion
+					//TODO Exception Abfrage durch RŸckgabewert der DB
+					dispose();
+				}
+			});
+			okButton.setActionCommand("OK");
+			getRootPane().setDefaultButton(okButton);
+		}
+		{
+			JButton cancelButton = new JButton("Nein");
+			cancelButton.setBounds(379, 123, 75, 29);
+			contentPanel.add(cancelButton);
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			cancelButton.setActionCommand("Cancel");
 		}
 	}
 

@@ -1,8 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -10,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class AdministrationBenutzerverwaltungHilfe extends JDialog {
@@ -33,30 +32,31 @@ public class AdministrationBenutzerverwaltungHilfe extends JDialog {
 	 * Create the dialog.
 	 */
 	public AdministrationBenutzerverwaltungHilfe() {
+		setResizable(false);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(6, 6, 438, 227);
-		contentPanel.add(textPane);
+		JTextPane txtpnTodo = new JTextPane();
+		//TODO Inhalt
+		txtpnTodo.setText("TODO");
+		txtpnTodo.setEditable(false);
+		txtpnTodo.setBounds(6, 6, 438, 227);
+		contentPanel.add(txtpnTodo);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
+			JButton okButton = new JButton("OK");
+			okButton.setBounds(369, 243, 75, 29);
+			contentPanel.add(okButton);
+			okButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			okButton.setActionCommand("OK");
+			getRootPane().setDefaultButton(okButton);
 		}
 	}
 }

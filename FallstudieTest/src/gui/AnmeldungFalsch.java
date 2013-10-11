@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class AnmeldungFalsch extends JDialog {
@@ -31,45 +32,42 @@ public class AnmeldungFalsch extends JDialog {
 	 * Create the dialog.
 	 */
 	public AnmeldungFalsch() {
-		setBounds(100, 100, 450, 300);
+		setResizable(false);
+		setBackground(Color.WHITE);
+		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
 			JTextPane txtpnDieAnmeldungWar = new JTextPane();
-			txtpnDieAnmeldungWar.setBounds(6, 6, 438, 227);
+			txtpnDieAnmeldungWar.setEditable(false);
+			txtpnDieAnmeldungWar.setBackground(Color.WHITE);
+			txtpnDieAnmeldungWar.setBounds(6, 6, 438, 89);
 			txtpnDieAnmeldungWar.setText("\n\n    Die Anmeldung war fehlerhaft. Versuchen Sie es erneut\n    oder wenden Sie sich an Ihren Systemadministrator.");
 			contentPanel.add(txtpnDieAnmeldungWar);
 		}
+		JButton okButton = new JButton("OK");
+		okButton.setBounds(379, 123, 75, 29);
+		contentPanel.add(okButton);
+		okButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		okButton.setActionCommand("OK");
+		getRootPane().setDefaultButton(okButton);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(6, 228, 450, 39);
-			contentPanel.add(buttonPane);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setBounds(351, 6, 75, 29);
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
-					}
-				});
-				buttonPane.setLayout(null);
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
-			{
-				JButton button = new JButton("?");
-				button.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						AnmeldungFalschHilfe frmAnmeldungFalschHilfe = new AnmeldungFalschHilfe();
-		        		frmAnmeldungFalschHilfe.setVisible(true); 
-					}
-				});
-				button.setBounds(6, 6, 29, 29);
-				buttonPane.add(button);
-			}
+			JButton button = new JButton("?");
+			button.setBounds(6, 123, 29, 29);
+			contentPanel.add(button);
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					AnmeldungFalschHilfe frmAnmeldungFalschHilfe = new AnmeldungFalschHilfe();
+		        	frmAnmeldungFalschHilfe.setVisible(true); 
+				}
+			});
 		}
 	}
 
