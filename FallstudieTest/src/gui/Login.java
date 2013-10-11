@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Color;
 
 
 @SuppressWarnings("serial")
@@ -40,6 +41,7 @@ public class Login extends JDialog {
 	 */
 	
 	public Login() {
+		setBackground(Color.WHITE);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));

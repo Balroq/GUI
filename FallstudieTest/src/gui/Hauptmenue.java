@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.JPasswordField;
+import java.awt.Button;
 
 
 public class Hauptmenue {
@@ -76,17 +77,39 @@ public class Hauptmenue {
         tabpane.addTab("Administration", panelAdministration);
         panelAdministration.setLayout(null);
         
-        JButton btnOrgaeinheitverwaltung = new JButton("Orga-Einheitverwaltung");
-        btnOrgaeinheitverwaltung.setBounds(186, 100, 175, 65);
-        panelAdministration.add(btnOrgaeinheitverwaltung);
-        
-        JButton btnStrichanzahlverwaltung = new JButton("Strichanzahlverwaltung");
-        btnStrichanzahlverwaltung.setBounds(373, 103, 165, 59);
-        panelAdministration.add(btnStrichanzahlverwaltung);
-        
         JLabel lblBenutzerverwaltung = new JLabel("Benutzerverwaltung:");
         lblBenutzerverwaltung.setBounds(6, 6, 127, 16);
         panelAdministration.add(lblBenutzerverwaltung);
+        
+        JLabel lblOrganisationseinheitenverwaltung = new JLabel("Organisationseinheitenverwaltung:");
+        lblOrganisationseinheitenverwaltung.setBounds(6, 97, 252, 16);
+        panelAdministration.add(lblOrganisationseinheitenverwaltung);
+        
+        JLabel lblSystemverwaltung = new JLabel("Systemverwaltung");
+        lblSystemverwaltung.setBounds(6, 183, 175, 16);
+        panelAdministration.add(lblSystemverwaltung);
+        
+        JButton btnNeuerBenutzer = new JButton("Neuer Benutzer");
+        btnNeuerBenutzer.setBounds(16, 34, 144, 40);
+        panelAdministration.add(btnNeuerBenutzer);
+        
+        JButton btnBenutzerBearbeiten = new JButton("Benutzer bearbeiten");
+        btnBenutzerBearbeiten.setBounds(171, 34, 144, 40);
+        panelAdministration.add(btnBenutzerBearbeiten);
+        
+        JButton btnBenutzerLschen = new JButton("Benutzer l\u00F6schen");
+        btnBenutzerLschen.setBounds(327, 34, 144, 40);
+        panelAdministration.add(btnBenutzerLschen);
+        
+        JButton btnNeueOrganisationseinheit = new JButton("Neue Organisationseinheit");
+        btnNeueOrganisationseinheit.setBounds(6, 125, 200, 40);
+        panelAdministration.add(btnNeueOrganisationseinheit);
+        
+        JButton btnOrgaeinheitInaktivSetzen = new JButton("Inaktiv setzen");
+        btnOrgaeinheitInaktivSetzen.setBounds(327, 131, 175, 40);
+        panelAdministration.add(btnOrgaeinheitInaktivSetzen);
+        
+
  
         // JTabbedPane wird unserem Dialog hinzugefügt
         frame.getContentPane().add(tabpane);
