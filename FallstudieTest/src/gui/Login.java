@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import java.awt.Point;
 
 
 @SuppressWarnings("serial")
@@ -20,6 +21,7 @@ public class Login extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtBenutzername;
 	private JPasswordField pwdPasswort;
+	private int zaehler = 0;
 
 	/**
 	 * Launch the application.
@@ -37,11 +39,9 @@ public class Login extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	
 	public Login() {
 		setResizable(false);
-		setTitle("Elastico");
-		
+		setTitle("Login - Elastico");
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 450, 240);
 		getContentPane().setLayout(new BorderLayout());
@@ -64,7 +64,7 @@ public class Login extends JDialog {
 					frmPasswortVergessen.setVisible(true);
 				}
 			});
-			btnPasswortVergessen.setBounds(93, 180, 160, 29);
+			btnPasswortVergessen.setBounds(6, 180, 160, 29);
 			contentPanel.add(btnPasswortVergessen);
 		}
 		{
@@ -85,48 +85,73 @@ public class Login extends JDialog {
 		{
 			JLabel lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/gui/images/LogoFinal.png")));
-			lblNewLabel.setBounds(315, 37, 123, 133);
+			lblNewLabel.setBounds(317, 15, 121, 153);
 			contentPanel.add(lblNewLabel);
 		}
 		{
 			JButton button = new JButton("?");
-			button.setBounds(6, 180, 75, 29);
+			button.setBounds(363, 180, 75, 29);
 			contentPanel.add(button);
-			JButton okButton = new JButton("Anmelden");
-			okButton.setBackground(Color.WHITE);
-			okButton.setBounds(66, 119, 107, 29);
-			contentPanel.add(okButton);
-			okButton.addActionListener(new ActionListener() {
+			JButton anmeldenButton = new JButton("Anmelden");
+			anmeldenButton.setBackground(Color.WHITE);
+			anmeldenButton.setBounds(66, 119, 107, 29);
+			contentPanel.add(anmeldenButton);
+			anmeldenButton.addActionListener(new ActionListener() {
 				
 				@SuppressWarnings("deprecation")
 				public void actionPerformed(ActionEvent e) {
-					//TODO Aktion				
+					//TODO Aktion	
+					// Methodenname - †bergabewerte - RŸckgabewete
+					// login - String benutzer, String passwort - boolean
+					
 					String a = txtBenutzername.getText();
 					String b = pwdPasswort.getText();	
 					if(a.equals("admin"))
 					{			
 						if(b.equals("admin"))
 						{
-						Hauptseite frmElasticoElektronische = new Hauptseite();
-						frmElasticoElektronische.frmElasticoElektronische.setVisible(true);					
+							Hauptseite frmElasticoElektronische = new Hauptseite();
+							frmElasticoElektronische.frmElasticoElektronische.setVisible(true);					
 			        		dispose();
 						}
 						else
 						{
+							zaehler++;
 							AnmeldungFalsch frmAnmeldungFalsch = new AnmeldungFalsch();
 							frmAnmeldungFalsch.setVisible(true);
+							
+							if(zaehler == 3)
+							{
+								//TODO Aktion
+								//TODO Exception Abfrage durch RŸckgabewert der DB
+								// Methodenname - †bergabewerte - RŸckgabewert
+								// passwortSperren - String benutzername - void
+								PasswortGesperrt PasswortGesperrt = new PasswortGesperrt();
+								PasswortGesperrt.setVisible(true);
+							}
 						}
 					}
 					else
 					{
+						zaehler++;
 						AnmeldungFalsch frmAnmeldungFalsch = new AnmeldungFalsch();
-						frmAnmeldungFalsch.setVisible(true);			
+						frmAnmeldungFalsch.setVisible(true);
+						
+						if(zaehler == 3)
+						{
+							//TODO Aktion
+							//TODO Exception Abfrage durch RŸckgabewert der DB
+							// Methodenname - †bergabewerte - RŸckgabewert
+							// passwortSperren - String benutzername - void
+							PasswortGesperrt PasswortGesperrt = new PasswortGesperrt();
+							PasswortGesperrt.setVisible(true);
+						}
 					}
-
+					
 				}
 			});
-			okButton.setActionCommand("OK");
-			getRootPane().setDefaultButton(okButton);
+			anmeldenButton.setActionCommand("Anmelden");
+			getRootPane().setDefaultButton(anmeldenButton);
 			{
 				JButton cancelButton = new JButton("Abbrechen");
 				cancelButton.setBounds(169, 119, 111, 29);
@@ -139,7 +164,6 @@ public class Login extends JDialog {
 				});
 				cancelButton.setActionCommand("Cancel");
 			}
-			okButton.requestFocus();
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					LoginHilfe frmLoginHilfe = new LoginHilfe();

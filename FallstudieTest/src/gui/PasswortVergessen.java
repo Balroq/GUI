@@ -32,6 +32,7 @@ public class PasswortVergessen extends JDialog {
 	 * Create the dialog.
 	 */
 	public PasswortVergessen() {
+		setTitle("Passwort vergessen");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);

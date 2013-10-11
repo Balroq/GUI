@@ -5,13 +5,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JTextPane;
 
 @SuppressWarnings("serial")
-public class AdministrationBenutzerverwaltungHilfe extends JDialog {
+public class PasswortGesperrt extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -20,7 +20,7 @@ public class AdministrationBenutzerverwaltungHilfe extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			AdministrationBenutzerverwaltungHilfe dialog = new AdministrationBenutzerverwaltungHilfe();
+			PasswortGesperrt dialog = new PasswortGesperrt();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -31,32 +31,32 @@ public class AdministrationBenutzerverwaltungHilfe extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public AdministrationBenutzerverwaltungHilfe() {
-		setResizable(false);
-		setBounds(100, 100, 450, 300);
+	public PasswortGesperrt() {
+		setTitle("Benutzerkonto gesperrt");
+		setBackground(Color.WHITE);
+		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
-		JTextPane txtpnTodo = new JTextPane();
-		//TODO Inhalt
-		txtpnTodo.setText("TODO");
-		txtpnTodo.setEditable(false);
-		txtpnTodo.setBounds(6, 6, 438, 227);
-		contentPanel.add(txtpnTodo);
 		{
 			JButton okButton = new JButton("OK");
-			okButton.setBounds(369, 243, 75, 29);
+			okButton.setBounds(379, 123, 75, 29);
 			contentPanel.add(okButton);
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					dispose();
+					System.exit(0);
 				}
 			});
 			okButton.setActionCommand("OK");
 			getRootPane().setDefaultButton(okButton);
 		}
+		
+		JTextPane txtpnIhrBenutzerkonteWurde = new JTextPane();
+		txtpnIhrBenutzerkonteWurde.setText("Ihr Benutzerkonto wurde vor\u00FCbergehend deaktiviert. Setzen Sie sich mit Ihrem Systemadministrator in Verbindung.");
+		txtpnIhrBenutzerkonteWurde.setBounds(12, 55, 448, 42);
+		contentPanel.add(txtpnIhrBenutzerkonteWurde);
 	}
+
 }

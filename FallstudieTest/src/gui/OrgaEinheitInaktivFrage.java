@@ -33,6 +33,7 @@ public class OrgaEinheitInaktivFrage extends JDialog {
 	 * Create the dialog.
 	 */
 	public OrgaEinheitInaktivFrage() {
+		setTitle("Organisationseinheit - Deaktivieren");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
@@ -51,7 +52,7 @@ public class OrgaEinheitInaktivFrage extends JDialog {
 			txtpnWollenSieDie.setEditable(false);
 			txtpnWollenSieDie.setBackground(Color.WHITE);
 			txtpnWollenSieDie.setText("Wollen Sie die folgende Organisationseinheit wirklich deaktivieren?");
-			txtpnWollenSieDie.setBounds(6, 6, 435, 109);
+			txtpnWollenSieDie.setBounds(19, 22, 435, 109);
 			contentPanel.add(txtpnWollenSieDie);
 		}
 		{

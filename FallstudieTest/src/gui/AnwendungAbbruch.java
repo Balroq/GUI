@@ -33,6 +33,7 @@ public class AnwendungAbbruch extends JDialog {
 	 * Create the dialog.
 	 */
 	public AnwendungAbbruch() {
+		setTitle("Elastico - Beenden");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
@@ -42,8 +43,8 @@ public class AnwendungAbbruch extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblWollenSieDie = new JLabel("M\u00F6chten Sie die Anwendung wirklich beenden?");
-			lblWollenSieDie.setBounds(64, 57, 303, 16);
+			JLabel lblWollenSieDie = new JLabel("M\u00F6chten Sie Elastico wirklich beenden?");
+			lblWollenSieDie.setBounds(89, 57, 303, 16);
 			contentPanel.add(lblWollenSieDie);
 		}
 		{
@@ -55,7 +56,7 @@ public class AnwendungAbbruch extends JDialog {
 					System.exit(0);
 				}
 			});
-			okButton.setActionCommand("OK");
+			okButton.setActionCommand("Ja");
 			getRootPane().setDefaultButton(okButton);
 		}
 		{
@@ -67,7 +68,7 @@ public class AnwendungAbbruch extends JDialog {
 					dispose();
 				}
 			});
-			cancelButton.setActionCommand("Cancel");
+			cancelButton.setActionCommand("Nein");
 		}
 	}
 

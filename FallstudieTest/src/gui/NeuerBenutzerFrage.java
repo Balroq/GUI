@@ -32,6 +32,7 @@ public class NeuerBenutzerFrage extends JDialog {
 	 * Create the dialog.
 	 */
 	public NeuerBenutzerFrage() {
+		setTitle("Benutzer - Anlegen");
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
@@ -45,6 +46,9 @@ public class NeuerBenutzerFrage extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					//TODO Aktion
 					//TODO Exception Abfrage durch RŸckgabewert der DB
+					// Methodenname - †bergabewerte - RŸckgabewete
+					// benutzerErstellen - String benutzer, String passwort, String benutzername, String neuerBenutzerPasswort, int idOE - boolean
+					
 					ErfolgEingabe ErfolgEingabe = new ErfolgEingabe();
 					ErfolgEingabe.setVisible(true);
 					dispose();

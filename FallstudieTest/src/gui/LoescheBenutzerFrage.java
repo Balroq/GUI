@@ -45,12 +45,12 @@ public class LoescheBenutzerFrage extends JDialog {
 			JTextPane txtpnWollenSieDen = new JTextPane();
 			txtpnWollenSieDen.setEditable(false);
 			txtpnWollenSieDen.setText("Wollen Sie den folgenden Benutzer wirklich loeschen?");
-			txtpnWollenSieDen.setBounds(26, 10, 383, 22);
+			txtpnWollenSieDen.setBounds(59, 20, 383, 22);
 			contentPanel.add(txtpnWollenSieDen);
 		}
 		{
 			JLabel lblBenutzername = new JLabel("Benutzername");
-			lblBenutzername.setBounds(186, 70, 101, 16);
+			lblBenutzername.setBounds(186, 69, 101, 16);
 			contentPanel.add(lblBenutzername);
 		}
 		{
@@ -61,6 +61,9 @@ public class LoescheBenutzerFrage extends JDialog {
 				public void actionPerformed(ActionEvent e) {	
 					//TODO Aktion
 					//TODO Exception Abfrage durch RŸckgabewert der DB
+					// Methodenname - †bergabewerte - RŸckgabewert
+					// benutzerLoeschen - String benutzer, String passwort, String zuLoeschenderBenutzer - boolean
+					
 					dispose();
 				}
 			});

@@ -32,6 +32,7 @@ public class AnmeldungFalschHilfe extends JDialog {
 	 * Create the dialog.
 	 */
 	public AnmeldungFalschHilfe() {
+		setTitle("Login - Fehlgeschlagen - Hilfe");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
@@ -44,6 +45,7 @@ public class AnmeldungFalschHilfe extends JDialog {
 			JTextPane txtpnDerGrundFr = new JTextPane();
 			txtpnDerGrundFr.setEditable(false);
 			txtpnDerGrundFr.setBackground(Color.WHITE);
+			//TODO Inhalt
 			txtpnDerGrundFr.setText("Der Grund f\u00FCr eine fehlerhafte Anmeldung kann sein, dass es Ihren Benutzernamen nicht gibt, oder dass das Passwort nicht zu Ihrem Benutzernamen passt. Achten Sie bei einer erneuten Eingabe auch auf Gro\u00DF- und Kleinschreibung.");
 			txtpnDerGrundFr.setBounds(6, 6, 438, 77);
 			contentPanel.add(txtpnDerGrundFr);

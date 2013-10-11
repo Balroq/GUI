@@ -32,6 +32,7 @@ public class LoginHilfe extends JDialog {
 	 * Create the dialog.
 	 */
 	public LoginHilfe() {
+		setTitle("Login - Hilfe");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 480, 180);

@@ -10,12 +10,13 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JComboBox;
 
 @SuppressWarnings("serial")
 public class LoescheBenutzer extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
+	private JTextField txtBenutzername;
 
 	/**
 	 * Launch the application.
@@ -34,6 +35,7 @@ public class LoescheBenutzer extends JDialog {
 	 * Create the dialog.
 	 */
 	public LoescheBenutzer() {
+		setTitle("Benutzer - L\u00F6schen");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
@@ -43,10 +45,10 @@ public class LoescheBenutzer extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			textField = new JTextField();
-			textField.setBounds(197, 40, 134, 28);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			txtBenutzername = new JTextField();
+			txtBenutzername.setBounds(197, 40, 134, 28);
+			contentPanel.add(txtBenutzername);
+			txtBenutzername.setColumns(10);
 		}
 		{
 			JLabel lblBenutzername = new JLabel("Benutzername:");
@@ -59,6 +61,11 @@ public class LoescheBenutzer extends JDialog {
 			contentPanel.add(okButton);
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					//TODO Aktion
+					// †bergabe von "benutzername" an "LoescheBenutzerFrage"
+					String benutzername = txtBenutzername.getText();
+					
+					
 					LoescheBenutzerFrage LoescheBenutzerFrage = new LoescheBenutzerFrage();
 					LoescheBenutzerFrage.setVisible(true);
 					dispose();
@@ -77,6 +84,11 @@ public class LoescheBenutzer extends JDialog {
 				}
 			});
 			cancelButton.setActionCommand("Cancel");
+		}
+		{
+			JComboBox comboBoxBenutzername = new JComboBox();
+			comboBoxBenutzername.setBounds(346, 42, 77, 27);
+			contentPanel.add(comboBoxBenutzername);
 		}
 	}
 

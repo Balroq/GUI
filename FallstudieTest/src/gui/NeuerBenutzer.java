@@ -15,8 +15,9 @@ import java.awt.Color;
 public class NeuerBenutzer extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtBenutzername;
+	private JTextField txtPasswort;
+	private JTextField txtBenutzer;
 
 	/**
 	 * Launch the application.
@@ -35,6 +36,7 @@ public class NeuerBenutzer extends JDialog {
 	 * Create the dialog.
 	 */
 	public NeuerBenutzer() {
+		setTitle("Benutzer - Anlegen");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
@@ -44,25 +46,25 @@ public class NeuerBenutzer extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			textField_1 = new JTextField();
-			textField_1.setBounds(217, 71, 134, 28);
-			contentPanel.add(textField_1);
-			textField_1.setColumns(10);
+			txtPasswort = new JTextField();
+			txtPasswort.setBounds(217, 77, 134, 28);
+			contentPanel.add(txtPasswort);
+			txtPasswort.setColumns(10);
 		}
 		{
-			textField = new JTextField();
-			textField.setBounds(217, 37, 134, 28);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			txtBenutzername = new JTextField();
+			txtBenutzername.setBounds(217, 49, 134, 28);
+			contentPanel.add(txtBenutzername);
+			txtBenutzername.setColumns(10);
 		}
 		{
 			JLabel lblBenutzername = new JLabel("Benutzername:");
-			lblBenutzername.setBounds(101, 43, 104, 16);
+			lblBenutzername.setBounds(101, 55, 104, 16);
 			contentPanel.add(lblBenutzername);
 		}
 		{
 			JLabel lblPasswort = new JLabel("Passwort:");
-			lblPasswort.setBounds(101, 77, 61, 16);
+			lblPasswort.setBounds(101, 83, 61, 16);
 			contentPanel.add(lblPasswort);
 		}
 		{
@@ -71,7 +73,13 @@ public class NeuerBenutzer extends JDialog {
 			contentPanel.add(okButton);
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					//TODO Aktion
+					//TODO Aktion	
+					// †bergabe von "benutzer", "benutzername" und "passwort" an "NeuerBenutzerFrage"
+					String benutzer = txtBenutzer.getText();
+					String benutzername = txtBenutzername.getText();
+					String passwort = txtPasswort.getText();
+					
+					
 					NeuerBenutzerFrage NeuerBenutzerFrage = new NeuerBenutzerFrage();
 					NeuerBenutzerFrage.setVisible(true);
 					dispose();
@@ -90,6 +98,17 @@ public class NeuerBenutzer extends JDialog {
 				}
 			});
 			cancelButton.setActionCommand("Cancel");
+		}
+		{
+			JLabel lblBenutzer = new JLabel("Benutzer:");
+			lblBenutzer.setBounds(101, 27, 61, 16);
+			contentPanel.add(lblBenutzer);
+		}
+		{
+			txtBenutzer = new JTextField();
+			txtBenutzer.setBounds(217, 21, 134, 28);
+			contentPanel.add(txtBenutzer);
+			txtBenutzer.setColumns(10);
 		}
 	}
 

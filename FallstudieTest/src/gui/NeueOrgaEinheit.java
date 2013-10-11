@@ -15,7 +15,7 @@ import java.awt.Color;
 public class NeueOrgaEinheit extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
+	private JTextField txtOrgaEinheit;
 
 	/**
 	 * Launch the application.
@@ -34,6 +34,7 @@ public class NeueOrgaEinheit extends JDialog {
 	 * Create the dialog.
 	 */
 	public NeueOrgaEinheit() {
+		setTitle("Organisationseinheit - Anlegen");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 480, 160);
@@ -48,10 +49,10 @@ public class NeueOrgaEinheit extends JDialog {
 			contentPanel.add(lblNeueOrganisationseinheit);
 		}
 		{
-			textField = new JTextField();
-			textField.setBounds(273, 48, 134, 28);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			txtOrgaEinheit = new JTextField();
+			txtOrgaEinheit.setBounds(273, 48, 134, 28);
+			contentPanel.add(txtOrgaEinheit);
+			txtOrgaEinheit.setColumns(10);
 		}
 		{
 			JButton okButton = new JButton("Best\u00E4tigen");
@@ -60,8 +61,12 @@ public class NeueOrgaEinheit extends JDialog {
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//TODO Aktion
-					ErfolgEingabe erfein = new ErfolgEingabe();
-					erfein.setVisible(true);
+					// †bergabe von "orgaEinheit" an "NeueOrgaEinheit"
+					String orgaEinheit = txtOrgaEinheit.getText();
+					
+					
+					NeueOrgaEinheitFrage NeueOrgaEinheitFrage = new NeueOrgaEinheitFrage();
+					NeueOrgaEinheitFrage.setVisible(true);
 					dispose();
 				}
 			});

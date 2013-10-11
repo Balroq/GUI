@@ -32,6 +32,7 @@ public class Administrationshilfe extends JDialog {
 	 * Create the dialog.
 	 */
 	public Administrationshilfe() {
+		setTitle("Administration - Hilfe");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 450, 300);

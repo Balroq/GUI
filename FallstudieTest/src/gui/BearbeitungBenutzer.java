@@ -9,13 +9,15 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JComboBox;
 
 @SuppressWarnings("serial")
 public class BearbeitungBenutzer extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtPasswort;
+	private JTextField txtBenutzername;
 
 	/**
 	 * Launch the application.
@@ -34,17 +36,20 @@ public class BearbeitungBenutzer extends JDialog {
 	 * Create the dialog.
 	 */
 	public BearbeitungBenutzer() {
+		setTitle("Benutzer - Passwort \u00E4ndern");
+		setBackground(Color.WHITE);
 		setResizable(false);
 		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			textField = new JTextField();
-			textField.setBounds(222, 60, 134, 28);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			txtPasswort = new JTextField();
+			txtPasswort.setBounds(222, 60, 134, 28);
+			contentPanel.add(txtPasswort);
+			txtPasswort.setColumns(10);
 		}
 		{
 			JLabel lblNeuesPasswort = new JLabel("Neues Passwort:");
@@ -57,16 +62,22 @@ public class BearbeitungBenutzer extends JDialog {
 			contentPanel.add(lblBenutzername);
 		}
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(222, 35, 134, 28);
-		contentPanel.add(textField_1);
-		textField_1.setColumns(10);
+		txtBenutzername = new JTextField();
+		txtBenutzername.setBounds(222, 35, 134, 28);
+		contentPanel.add(txtBenutzername);
+		txtBenutzername.setColumns(10);
 		{
-			JButton okButton = new JButton("Best\u00E4tigen");
+			JButton okButton = new JButton("\u00C4ndern");
 			okButton.setBounds(103, 101, 109, 29);
 			contentPanel.add(okButton);
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					//TODO Aktion
+					// †bergeben von "benutzername" und "passwort" an "BearbeitungBenutzerFrage"
+					String benutzername = txtBenutzername.getText();
+					String passwort = txtPasswort.getText();
+					
+					
 					BearbeitungBenutzerFrage BearbeitungBenutzerFrage = new BearbeitungBenutzerFrage();
 					BearbeitungBenutzerFrage.setVisible(true);
 					dispose();
@@ -86,5 +97,9 @@ public class BearbeitungBenutzer extends JDialog {
 			});
 			cancelButton.setActionCommand("Cancel");
 		}
+		
+		JComboBox comboBoxBenutzername = new JComboBox();
+		comboBoxBenutzername.setBounds(368, 37, 77, 27);
+		contentPanel.add(comboBoxBenutzername);
 	}
 }

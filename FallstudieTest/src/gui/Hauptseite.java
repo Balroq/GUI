@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.Point;
 
 
 //TODO Alle Knoepfe eingebunden? Fehlt etwas? Vier-Augen-Prinzip
@@ -46,6 +47,7 @@ public class Hauptseite {
 	 */
 	private void initialize() {
 		frmElasticoElektronische = new JFrame();
+		frmElasticoElektronische.setLocation(new Point(200, 100));
 		frmElasticoElektronische.setResizable(false);
 		frmElasticoElektronische.setTitle("Elastico - Elektronische Arbeitsschritt / Information / Control / Observation");
 		frmElasticoElektronische.setBackground(Color.WHITE);
@@ -106,14 +108,14 @@ public class Hauptseite {
         lblSystemverwaltung.setBounds(6, 183, 175, 16);
         panelAdministration.add(lblSystemverwaltung);
         
-        JButton btnNeuerBenutzer = new JButton("Neuer Benutzer");
+        JButton btnNeuerBenutzer = new JButton("Benutzer anlegen");
         btnNeuerBenutzer.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		NeuerBenutzer NeuerBenutzer = new NeuerBenutzer();
         		NeuerBenutzer.setVisible(true); 
         	}
         });
-        btnNeuerBenutzer.setBounds(6, 34, 144, 40);
+        btnNeuerBenutzer.setBounds(6, 34, 137, 40);
         panelAdministration.add(btnNeuerBenutzer);
         
         JButton btnBenutzerBearbeiten = new JButton("Benutzer bearbeiten");
@@ -123,7 +125,7 @@ public class Hauptseite {
         		BearbeitungBenutzer.setVisible(true);
         	}
         });
-        btnBenutzerBearbeiten.setBounds(162, 34, 153, 40);
+        btnBenutzerBearbeiten.setBounds(155, 34, 144, 40);
         panelAdministration.add(btnBenutzerBearbeiten);
         
         JButton btnBenutzerLschen = new JButton("Benutzer l\u00F6schen");
@@ -133,27 +135,27 @@ public class Hauptseite {
         		LoescheBenutzer.setVisible(true);
         	}
         });
-        btnBenutzerLschen.setBounds(327, 34, 144, 40);
+        btnBenutzerLschen.setBounds(311, 34, 127, 40);
         panelAdministration.add(btnBenutzerLschen);
         
-        JButton btnNeueOrganisationseinheit = new JButton("Neue Organisationseinheit");
+        JButton btnNeueOrganisationseinheit = new JButton("Organisationseinheit anlegen");
         btnNeueOrganisationseinheit.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		NeueOrgaEinheit  NeueOrgaEinheit = new NeueOrgaEinheit();
         		NeueOrgaEinheit.setVisible(true);
         	}
         });
-        btnNeueOrganisationseinheit.setBounds(6, 125, 309, 40);
+        btnNeueOrganisationseinheit.setBounds(6, 125, 208, 40);
         panelAdministration.add(btnNeueOrganisationseinheit);
         
-        JButton btnOrgaeinheitInaktivSetzen = new JButton("Inaktiv setzen");
+        JButton btnOrgaeinheitInaktivSetzen = new JButton("Organisationseinheit Inaktiv setzen");
         btnOrgaeinheitInaktivSetzen.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		OrgaEinheitInaktiv OrgaEinheitInaktiv = new OrgaEinheitInaktiv();
         		OrgaEinheitInaktiv.setVisible(true);
         		}
         });
-        btnOrgaeinheitInaktivSetzen.setBounds(327, 125, 144, 40);
+        btnOrgaeinheitInaktivSetzen.setBounds(226, 125, 236, 40);
         panelAdministration.add(btnOrgaeinheitInaktivSetzen);
         
         JButton button = new JButton("?");
@@ -166,15 +168,25 @@ public class Hauptseite {
         button.setBounds(698, 244, 29, 29);
         panelAdministration.add(button);
         
-        JButton btnKonfigurieren = new JButton("Konfigurieren");
-        btnKonfigurieren.addActionListener(new ActionListener() {
+        JButton btnStrichkategorienHinzufgen = new JButton("Strichkategorien anlegen");
+        btnStrichkategorienHinzufgen.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		SystemKonfiguration SystemKonfiguration = new SystemKonfiguration();
-        		SystemKonfiguration.setVisible(true);
+        		NeueStrichkategorie StrichkategorieHinzu = new NeueStrichkategorie();
+        		StrichkategorieHinzu.setVisible(true);
         	}
         });
-        btnKonfigurieren.setBounds(6, 211, 154, 40);
-        panelAdministration.add(btnKonfigurieren);
+        btnStrichkategorienHinzufgen.setBounds(6, 211, 180, 40);
+        panelAdministration.add(btnStrichkategorienHinzufgen);
+        
+        JButton btnOrganisationseinheitWechseln = new JButton("Organisationseinheit wechseln");
+        btnOrganisationseinheitWechseln.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		BearbeitungBenutzerOrgaEinheit BearbeitungBenutzerOrgaEinheit = new BearbeitungBenutzerOrgaEinheit();
+        		BearbeitungBenutzerOrgaEinheit.setVisible(true);
+        	}
+        });
+        btnOrganisationseinheitWechseln.setBounds(448, 34, 216, 40);
+        panelAdministration.add(btnOrganisationseinheitWechseln);
  
         // JTabbedPane wird unserem Dialog hinzugefügt
         frmElasticoElektronische.getContentPane().add(tabpane);

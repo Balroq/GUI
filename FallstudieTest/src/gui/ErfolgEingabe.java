@@ -32,6 +32,7 @@ public class ErfolgEingabe extends JDialog {
 	 * Create the dialog.
 	 */
 	public ErfolgEingabe() {
+		setTitle("Erfolgreiche Eingabe");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);

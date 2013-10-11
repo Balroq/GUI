@@ -32,6 +32,8 @@ public class BearbeitungBenutzerFrage extends JDialog {
 	 * Create the dialog.
 	 */
 	public BearbeitungBenutzerFrage() {
+		setTitle("Benutzer - Passwort \u00E4ndern");
+		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
 		getContentPane().setLayout(new BorderLayout());
@@ -45,8 +47,11 @@ public class BearbeitungBenutzerFrage extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					//TODO Aktion
 					//TODO Exception Abfrage durch RŸckgabewert der DB
-					ErfolgEingabe erfein = new ErfolgEingabe();
-					erfein.setVisible(true);
+					// Methodenname - †bergabewerte - RŸckgabewert
+					// neuesPasswortSetzen - String benutzer, String passwort, String betroffenerBenutzer, String neuesPasswort - boolean
+					
+					ErfolgEingabe ErfolgEingabe = new ErfolgEingabe();
+					ErfolgEingabe.setVisible(true);
 					dispose();
 				}
 			});
@@ -68,6 +73,7 @@ public class BearbeitungBenutzerFrage extends JDialog {
 		}
 		{
 			JTextPane txtpnWollenSienderungen = new JTextPane();
+			txtpnWollenSienderungen.setEditable(false);
 			txtpnWollenSienderungen.setText("Wollen Sie \u00C4nderungen wirklich \u00FCbernehmen?");
 			txtpnWollenSienderungen.setBounds(85, 62, 301, 16);
 			contentPanel.add(txtpnWollenSienderungen);

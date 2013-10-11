@@ -5,13 +5,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JTextPane;
 
 @SuppressWarnings("serial")
-public class SystemKonfigurationFrage extends JDialog {
+public class NeueOrgaEinheitFrage extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -20,7 +20,7 @@ public class SystemKonfigurationFrage extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			SystemKonfigurationFrage dialog = new SystemKonfigurationFrage();
+			NeueOrgaEinheitFrage dialog = new NeueOrgaEinheitFrage();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -31,30 +31,26 @@ public class SystemKonfigurationFrage extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public SystemKonfigurationFrage() {
-		setResizable(false);
+	public NeueOrgaEinheitFrage() {
+		setTitle("Organisationseinheit - Anlegen");
 		setBackground(Color.WHITE);
-		setBounds(100, 100, 460, 180);
+		setBounds(100, 100, 480, 180);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JTextPane txtpnWollenSieDie = new JTextPane();
-			txtpnWollenSieDie.setBackground(Color.WHITE);
-			txtpnWollenSieDie.setText("Wollen Sie die \u00C4nderungen \u00FCbernehmen?");
-			txtpnWollenSieDie.setBounds(99, 57, 280, 29);
-			contentPanel.add(txtpnWollenSieDie);
-		}
-		{
 			JButton okButton = new JButton("Ja");
-			okButton.setBounds(292, 127, 75, 29);
+			okButton.setBounds(301, 123, 75, 29);
 			contentPanel.add(okButton);
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					//TODO Aktion			
+					//TODO Aktion
 					//TODO Exception Abfrage durch RŸckgabewert der DB
+					// Methodenname - †bergabewerte - RŸckgabewete
+					// getOrgaEinheiten - String benutzer, String passwort - List<OrgaEinheit>
+					
 					ErfolgEingabe erfein = new ErfolgEingabe();
 					erfein.setVisible(true);
 					dispose();
@@ -65,14 +61,20 @@ public class SystemKonfigurationFrage extends JDialog {
 		}
 		{
 			JButton cancelButton = new JButton("Nein");
-			cancelButton.setBounds(379, 127, 75, 29);
-			contentPanel.add(cancelButton);
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 				}
 			});
+			cancelButton.setBounds(388, 123, 86, 29);
+			contentPanel.add(cancelButton);
 			cancelButton.setActionCommand("Cancel");
+		}
+		{
+			JTextPane txtpnMchtenSieWirklich = new JTextPane();
+			txtpnMchtenSieWirklich.setText("M\u00F6chten Sie wirklich die folgende Organisationseinheit anlegen?");
+			txtpnMchtenSieWirklich.setBounds(35, 56, 405, 68);
+			contentPanel.add(txtpnMchtenSieWirklich);
 		}
 	}
 

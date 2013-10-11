@@ -32,6 +32,7 @@ public class AnmeldungFalsch extends JDialog {
 	 * Create the dialog.
 	 */
 	public AnmeldungFalsch() {
+		setTitle("Login - Fehlgeschlagen");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
@@ -45,6 +46,7 @@ public class AnmeldungFalsch extends JDialog {
 			txtpnDieAnmeldungWar.setEditable(false);
 			txtpnDieAnmeldungWar.setBackground(Color.WHITE);
 			txtpnDieAnmeldungWar.setBounds(6, 6, 438, 89);
+			//TODO Inhalt
 			txtpnDieAnmeldungWar.setText("\n\n    Die Anmeldung war fehlerhaft. Versuchen Sie es erneut\n    oder wenden Sie sich an Ihren Systemadministrator.");
 			contentPanel.add(txtpnDieAnmeldungWar);
 		}

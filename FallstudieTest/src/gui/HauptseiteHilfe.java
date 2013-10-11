@@ -32,6 +32,7 @@ public class HauptseiteHilfe extends JDialog {
 	 * Create the dialog.
 	 */
 	public HauptseiteHilfe() {
+		setTitle("Hauptseite - Hilfe");
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 460, 180);
