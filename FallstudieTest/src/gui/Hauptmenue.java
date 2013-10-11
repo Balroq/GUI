@@ -102,12 +102,20 @@ public class Hauptmenue {
         panelAdministration.add(btnBenutzerLschen);
         
         JButton btnNeueOrganisationseinheit = new JButton("Neue Organisationseinheit");
-        btnNeueOrganisationseinheit.setBounds(6, 125, 200, 40);
+        btnNeueOrganisationseinheit.setBounds(6, 125, 309, 40);
         panelAdministration.add(btnNeueOrganisationseinheit);
         
         JButton btnOrgaeinheitInaktivSetzen = new JButton("Inaktiv setzen");
-        btnOrgaeinheitInaktivSetzen.setBounds(327, 131, 175, 40);
+        btnOrgaeinheitInaktivSetzen.setBounds(327, 125, 144, 40);
         panelAdministration.add(btnOrgaeinheitInaktivSetzen);
+        
+        JButton button = new JButton("?");
+        button.setBounds(541, 244, 29, 29);
+        panelAdministration.add(button);
+        
+        JButton btnKonfiguration = new JButton("Konfiguration");
+        btnKonfiguration.setBounds(6, 211, 144, 40);
+        panelAdministration.add(btnKonfiguration);
         
 
  
