@@ -76,10 +76,6 @@ public class Hauptmenue {
         tabpane.addTab("Administration", panelAdministration);
         panelAdministration.setLayout(null);
         
-        JButton btnBenutzerverwaltung = new JButton("Benutzerverwaltung");
-        btnBenutzerverwaltung.setBounds(23, 100, 145, 65);
-        panelAdministration.add(btnBenutzerverwaltung);
-        
         JButton btnOrgaeinheitverwaltung = new JButton("Orga-Einheitverwaltung");
         btnOrgaeinheitverwaltung.setBounds(186, 100, 175, 65);
         panelAdministration.add(btnOrgaeinheitverwaltung);
@@ -88,9 +84,9 @@ public class Hauptmenue {
         btnStrichanzahlverwaltung.setBounds(373, 103, 165, 59);
         panelAdministration.add(btnStrichanzahlverwaltung);
         
-        JSeparator separator = new JSeparator();
-        separator.setBounds(6, 86, 564, 2);
-        panelAdministration.add(separator);
+        JLabel lblBenutzerverwaltung = new JLabel("Benutzerverwaltung:");
+        lblBenutzerverwaltung.setBounds(6, 6, 127, 16);
+        panelAdministration.add(lblBenutzerverwaltung);
  
         // JTabbedPane wird unserem Dialog hinzugefügt
         frame.getContentPane().add(tabpane);
