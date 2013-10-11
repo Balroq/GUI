@@ -9,9 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JSeparator;
-import javax.swing.JPasswordField;
-import java.awt.Button;
+
 
 
 public class Hauptmenue {
@@ -90,34 +88,74 @@ public class Hauptmenue {
         panelAdministration.add(lblSystemverwaltung);
         
         JButton btnNeuerBenutzer = new JButton("Neuer Benutzer");
-        btnNeuerBenutzer.setBounds(16, 34, 144, 40);
+        btnNeuerBenutzer.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		NeuerBenutzer NeuerBenutzer = new NeuerBenutzer();
+        		NeuerBenutzer.setVisible(true); 
+        	}
+        });
+        btnNeuerBenutzer.setBounds(6, 34, 144, 40);
         panelAdministration.add(btnNeuerBenutzer);
         
         JButton btnBenutzerBearbeiten = new JButton("Benutzer bearbeiten");
-        btnBenutzerBearbeiten.setBounds(171, 34, 144, 40);
+        btnBenutzerBearbeiten.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		BearbeitungBenutzer BearbeitungBenutzer = new BearbeitungBenutzer();
+        		BearbeitungBenutzer.setVisible(true);
+        	}
+        });
+        btnBenutzerBearbeiten.setBounds(162, 34, 153, 40);
         panelAdministration.add(btnBenutzerBearbeiten);
         
         JButton btnBenutzerLschen = new JButton("Benutzer l\u00F6schen");
+        btnBenutzerLschen.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		LoescheBenutzer LoescheBenutzer = new LoescheBenutzer();
+        		LoescheBenutzer.setVisible(true);
+        	}
+        });
         btnBenutzerLschen.setBounds(327, 34, 144, 40);
         panelAdministration.add(btnBenutzerLschen);
         
         JButton btnNeueOrganisationseinheit = new JButton("Neue Organisationseinheit");
+        btnNeueOrganisationseinheit.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		NeueOrgaEinheit  NeueOrgaEinheit = new NeueOrgaEinheit();
+        		NeueOrgaEinheit.setVisible(true);
+        	}
+        });
         btnNeueOrganisationseinheit.setBounds(6, 125, 309, 40);
         panelAdministration.add(btnNeueOrganisationseinheit);
         
         JButton btnOrgaeinheitInaktivSetzen = new JButton("Inaktiv setzen");
+        btnOrgaeinheitInaktivSetzen.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		OrgaEinheitInaktiv OrgaEinheitInaktiv = new OrgaEinheitInaktiv();
+        		OrgaEinheitInaktiv.setVisible(true);
+        		}
+        });
         btnOrgaeinheitInaktivSetzen.setBounds(327, 125, 144, 40);
         panelAdministration.add(btnOrgaeinheitInaktivSetzen);
         
         JButton button = new JButton("?");
+        button.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Administrationshilfe Administrationshilfe = new Administrationshilfe();
+        		Administrationshilfe.setVisible(true);
+        		}
+        });
         button.setBounds(541, 244, 29, 29);
         panelAdministration.add(button);
         
-        JButton btnKonfiguration = new JButton("Konfiguration");
-        btnKonfiguration.setBounds(6, 211, 144, 40);
-        panelAdministration.add(btnKonfiguration);
-        
-
+        JButton btnKonfigurieren = new JButton("Konfigurieren");
+        btnKonfigurieren.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		SystemKonfiguration SystemKonfiguration = new SystemKonfiguration();
+        		SystemKonfiguration.setVisible(true);
+        	}
+        });
+        btnKonfigurieren.setBounds(6, 211, 154, 40);
+        panelAdministration.add(btnKonfigurieren);
  
         // JTabbedPane wird unserem Dialog hinzugefügt
         frame.getContentPane().add(tabpane);
@@ -145,5 +183,7 @@ public class Hauptmenue {
         JLabel lblEingeloggtAlsJanis = new JLabel("Eingeloggt als: Janis H\u00F6pken");
         lblEingeloggtAlsJanis.setBounds(74, 337, 180, 16);
         frame.getContentPane().add(lblEingeloggtAlsJanis);
+        
+        
 	}
 }

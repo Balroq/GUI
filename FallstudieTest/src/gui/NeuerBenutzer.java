@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class NeuerBenutzer extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -72,7 +73,8 @@ public class NeuerBenutzer extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						
 						//TODO
-						
+						ErfolgEingabe erfein = new ErfolgEingabe();
+						erfein.setVisible(true);
 						dispose();
 					}
 				});

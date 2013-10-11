@@ -105,6 +105,7 @@ public class Login extends JDialog {
 				JButton okButton = new JButton("Anmelden");
 				okButton.addActionListener(new ActionListener() {
 					
+					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e) {
 						System.out.println("Benutzername: " + txtBenutzername.getText());
 						System.out.println("Passwort: " + pwdPasswort.getText());
@@ -152,6 +153,7 @@ public class Login extends JDialog {
 		}
 		{
 			txtBenutzername.addFocusListener(new java.awt.event.FocusAdapter() {
+				@SuppressWarnings("deprecation")
 				public void focusGained(java.awt.event.FocusEvent evt) {
 		
 					if(pwdPasswort.getText().equals("txtBenutzername")){

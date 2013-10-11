@@ -8,7 +8,10 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class ErfolgEingabe extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -36,15 +39,21 @@ public class ErfolgEingabe extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(6, 6, 438, 227);
-		contentPanel.add(textPane);
+		JTextPane txtpnIhreEingabeWurde = new JTextPane();
+		txtpnIhreEingabeWurde.setText("Ihre Eingabe wurde erfolgreich \u00FCbernommen.");
+		txtpnIhreEingabeWurde.setBounds(6, 6, 438, 227);
+		contentPanel.add(txtpnIhreEingabeWurde);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
