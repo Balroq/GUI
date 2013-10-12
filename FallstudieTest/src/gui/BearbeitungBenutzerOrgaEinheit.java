@@ -86,6 +86,11 @@ public class BearbeitungBenutzerOrgaEinheit extends JDialog {
 		}
 		{
 			JButton button = new JButton("Abbrechen");
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
 			button.setActionCommand("Cancel");
 			button.setBounds(262, 95, 134, 29);
 			contentPanel.add(button);

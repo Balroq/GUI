@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class NeuerBenutzerFrage extends JDialog {
@@ -72,10 +73,9 @@ public class NeuerBenutzerFrage extends JDialog {
 		}
 		{
 			JTextPane txtpnMchtenSieDie = new JTextPane();
-			txtpnMchtenSieDie.setText("M\u00F6chten Sie die \u00C4nderungen wirklich \u00FCbernehmen?");
-			txtpnMchtenSieDie.setBounds(75, 63, 379, 41);
+			txtpnMchtenSieDie.setText("M\u00F6chten Sie den Benutzer wirklich anlegen?");
+			txtpnMchtenSieDie.setBounds(75, 37, 379, 41);
 			contentPanel.add(txtpnMchtenSieDie);
 		}
 	}
-
 }
